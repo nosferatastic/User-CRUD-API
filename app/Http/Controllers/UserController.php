@@ -71,11 +71,10 @@ class UserController extends BaseController
                 'phone_number' => 'sometimes|string',
                 'role' => 'sometimes|in:user,admin'
             ]);
-
             //If a regular user, they are not allowed to update their own role so we extract request body here & remove role if not admin
             $requestData = $request->all();
             if(auth()->user()->role != "admin") {
-                unset($requestData->role);
+                unset($requestData['role']);
             }
 
             //If successful so far, update user

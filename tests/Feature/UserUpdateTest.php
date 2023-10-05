@@ -102,6 +102,27 @@ class UserUpdateTest extends TestCase
     }
 
     /**
+     * Test that an admin can update role
+     */
+    public function test_admin_can_update_role(): void
+    {
+        // Create an admin user and a normal user
+        $admin = User::factory()->create(['role' => 'admin']);
+        $user = User::factory()->create(['role' => 'user']);
+
+        $response = $this->withHeaders(['Authorization' => 'Bearer '.$admin->api_key])->post('/api/user/'.$user->id.'/update', 
+        ['role' => 'admin']);
+
+        $response->assertStatus(200);
+
+        $response->assertJson([
+            'user' => [
+                'role' => 'admin'
+            ]
+        ]);
+    }
+
+    /**
      * A basic feature test example.
      */
     public function test_update_function_rejects_invalid_request(): void
