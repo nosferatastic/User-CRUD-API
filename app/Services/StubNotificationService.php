@@ -6,7 +6,7 @@ use App\Contracts\RegisterAlertServiceInterface;
 use \App\Models\User;
 use GuzzleHttp\Client;
 
-class StubNotificationService implements RegisterAlertServiceInterface{
+class StubNotificationService implements RegisterAlertServiceInterface {
 
     /**
      * This function is a stub that theoretically sends a notification to an external

@@ -29,7 +29,7 @@ class UserAuthController extends BaseController
         $this->registerAlertService = $registerAlertService;
     }
 
-    /*
+    /**
      * Register a user and return their auth token.
      * 
      * @param Request $request : request object. Must contain email, name, password matching desired formats
@@ -65,7 +65,7 @@ class UserAuthController extends BaseController
     }
 
 
-    /*
+    /**
      * Log in for an existing user and return their auth token.
      * 
      * @param Request $request : request object. Must contain email, password

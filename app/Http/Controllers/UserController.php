@@ -45,7 +45,7 @@ class UserController extends BaseController
     public function index(): JsonResponse
     {
         //If the user is an admin, they can get all users. See UserPolicy
-            if (auth()->user()->can('viewAny',User::class)) {
+        if (auth()->user()->can('viewAny',User::class)) {
             //Return all users
             return response()->json(User::all(), 200);
         } else {
