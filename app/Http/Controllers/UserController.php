@@ -74,7 +74,7 @@ class UserController extends BaseController
 
             //If a regular user, they are not allowed to update their own role so we extract request body here & remove role if not admin
             $requestData = $request->all();
-            if($user->role != "admin") {
+            if(auth()->user()->role != "admin") {
                 unset($requestData->role);
             }
 
